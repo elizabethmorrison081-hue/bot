@@ -38,10 +38,17 @@ const GROUP_RULES = `
 - Help one another and stay positive.
 
 For assistance, message support: ${ADMIN_USERNAME}
+*Enjoy your time here and happy investing!* 🚀
 `;
 
+function loadFAQ() {
+  return JSON.parse(fs.readFileSync("./data/faq.json", "utf-8"));
+}
+
+
 // === LOAD PLATFORM DATA ===
-const faqData = JSON.parse(fs.readFileSync("./data/faq.json", "utf-8"));
+const faqData = loadFAQ();
+
 
 // === GPT CONTEXT (PROFESSIONAL PERSONALITY) ===
 function generateContext() {
