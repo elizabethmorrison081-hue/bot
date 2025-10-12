@@ -10,66 +10,74 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
-  res.send("💥 Yo! NicoNetwork GangBot is live and running on the streets!");
+  res.send("🌐 NicoNetwork Bot is up and running smoothly!");
 });
 
-app.listen(PORT, () => console.log(`🌐 HTTP server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`✅ HTTP server running on port ${PORT}`));
 
 const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, { polling: true });
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 // === CONFIG ===
 const OFFICIAL_DOMAINS = ["niconetwork.cfd"];
+const ADMIN_USERNAME = "@NicoNetworkSupport";
+
 const INSULT_WORDS = [
-  "fool", "idiot", "stupid", "nonsense", "mad", "useless", "bastard", "sheep", "gyimi", "aboa", "kwasea", "kwasia",
-  "fuck", "f***", "asshole", "shit", "moron", "dumb", "retard", "goat", "gbemi", "sormi", "damn"
+  "fool", "idiot", "stupid", "nonsense", "mad", "useless", "bastard",
+  "sheep", "gyimi", "aboa", "kwasea", "kwasia", "fuck", "f***", "asshole",
+  "shit", "moron", "dumb", "retard", "goat", "gbemi", "sormi", "damn"
 ];
 
 const GROUP_RULES = `
-👋 *Yo welcome to NicoNetwork Official Gang!*
-Listen up fam 👇
+👋 *Welcome to NicoNetwork Official Group!*
 
 📜 *Group Rules:*
-- Keep it cool, no insults or spam.
-- Only NicoNetwork links allowed (https://niconetwork.cfd).
-- We open *10:00 AM* sharp, close *8:00 PM* — respect the grind hours.
-- Help each other out, don’t act shady.
+- Please stay respectful, no insults or spam.
+- Only NicoNetwork links are allowed (https://niconetwork.cfd).
+- Group opens *10:00 AM* and closes *8:00 PM* daily.
+- Help one another and stay positive.
 
-If you need deeper game, message support: @admin99
+For assistance, message support: ${ADMIN_USERNAME}
 `;
 
 // === LOAD PLATFORM DATA ===
 const faqData = JSON.parse(fs.readFileSync("./data/faq.json", "utf-8"));
 
-// === GPT CONTEXT (GANGSTER PERSONALITY) ===
+// === GPT CONTEXT (PROFESSIONAL PERSONALITY) ===
 function generateContext() {
   return `
-You are "Nico", the official *NicoNetwork GangBot* — a smart, street-savvy assistant who talks with a confident, funny, slightly gangster vibe (but always respectful).
+You are "Nico", the official *NicoNetwork Assistant Bot* — a smart, polite, and confident assistant who provides helpful, professional answers about the NicoNetwork platform.
 
-You ONLY answer questions about NicoNetwork (deposits, withdrawals, referrals, plans, bonuses, etc.).
-Ignore unrelated convos. If it’s not about NicoNetwork, stay quiet like a real OG.
+You ONLY respond to questions related to NicoNetwork (deposits, withdrawals, referrals, plans, bonuses, account info, etc.).
+Ignore unrelated conversations.
 
-Tone example:
-- Keep it chill, short, confident, and friendly.
-- Use casual slang like “fam”, “boss”, “yo”, “listen”, “no cap”, “for real”, “gang”.
-- Never be rude or offensive.
-- When explaining, sound like you know the hustle but keep it professional.
+Tone:
+- Professional but friendly.
+- Simple, clear, and reassuring.
+- Avoid slang or gangster tone completely.
+- Always represent NicoNetwork positively.
 
-Example answers:
+Special handling:
+If a user asks:
+- "Is NicoNetwork a scam?" → Reply that NicoNetwork is a legitimate and trusted investment platform that is fully dedicated to providing long-term, reliable service.
+- "How long will NicoNetwork last?" or "Will it collapse?" → Reply that NicoNetwork has been built for stability and long-term operation with transparent systems and ongoing improvements.
+- "How can I contact admin/support?" or "Who is the admin?" → Reply that users can contact the official support team directly on Telegram via ${ADMIN_USERNAME}.
+
+Examples:
 User: "How do I deposit?"
-Bot: "Yo fam 💰, to drop your funds, just log in and hit that *Deposit* button. Pick your plan, confirm it, and boom 💸 — your investment starts cookin'. If you need help, hit up the boss @admin99."
+Bot: "To make a deposit, log in to your NicoNetwork account, tap *Deposit*, choose your plan, confirm the amount, and complete your payment. Your plan activates immediately after confirmation."
 
-User: "What’s referral bonus?"
-Bot: "Gang, every time someone joins through your link, you bag that bonus 💵. NicoNetwork rewards the real ones out here. Respect the hustle."
+User: "Is it a scam?"
+Bot: "NicoNetwork is not a scam. It’s a genuine, secure, and transparent investment platform built to serve members responsibly for the long term."
 
-Here’s the official NicoNetwork data:
+Include this official NicoNetwork info when helpful:
 About: ${faqData.about}
 Plans: ${faqData.plans.map(p => `${p.name} - Daily Income: ${p.Daily_Income}, Duration: ${p.duration}, Min Deposit: ${p.min_deposit}`).join("; ")}
 Withdrawals: ${faqData.withdrawals}
 Referral: ${faqData.referral}
 Support: ${faqData.support}
 
-Always end your helpful messages with: "If you need clearer explanation contact the boss @admin99".
+Always end your message with: "If you need more help, contact support ${ADMIN_USERNAME}".
   `;
 }
 
@@ -126,8 +134,10 @@ function isOfficialUrl(link) {
 
 function isNicoNetworkRelated(text) {
   const keywords = [
-    "deposit", "withdraw", "plan", "balance", "referral", "earn", "bonus", "register",
-    "niconetwork", "investment", "profit", "return", "interest", "account", "login"
+    "deposit", "withdraw", "plan", "balance", "referral", "earn", "bonus",
+    "register", "niconetwork", "investment", "profit", "return", "interest",
+    "account", "login", "scam", "collapse", "last", "safe",
+    "support", "admin", "contact", "help"
   ];
   return keywords.some((kw) => text.toLowerCase().includes(kw));
 }
@@ -173,7 +183,7 @@ bot.on("message", async (msg) => {
   if (INSULT_WORDS.some((w) => lowerText.includes(w))) {
     await bot.sendMessage(
       chatId,
-      `⚠️ Yo @${msg.from.username || msg.from.first_name}, chill fam. Watch your mouth — we keep it cool in the gang.`
+      `⚠️ @${msg.from.username || msg.from.first_name}, please avoid using offensive words. Let’s keep this space respectful.`
     );
     return;
   }
@@ -184,14 +194,14 @@ bot.on("message", async (msg) => {
   // 4️⃣ Only reply to NicoNetwork-related stuff
   if (!isNicoNetworkRelated(text)) return;
 
-  // 5️⃣ Generate gangster-style GPT reply
+  // 5️⃣ Generate polite GPT reply
   try {
     await bot.sendChatAction(chatId, "typing");
     const context = generateContext();
 
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
-      temperature: 0.8,
+      temperature: 0.6,
       messages: [
         { role: "system", content: context },
         { role: "user", content: text },
@@ -206,4 +216,4 @@ bot.on("message", async (msg) => {
   }
 });
 
-console.log("🤖 NicoNetwork GangBot is live — keeping the chat clean and talking slick 😎");
+console.log("🤖 NicoNetwork Bot is live — clean, polite, and informative.");
