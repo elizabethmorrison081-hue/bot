@@ -1,0 +1,105 @@
+
+{
+  "about": "NicoNetwork is a trusted online investment platform dedicated to helping users grow their wealth through secure and smart investment strategies.",
+
+  "mission": "We are committed to providing a secure and reliable investment platform that helps our users grow their wealth through smart investment strategies.",
+
+  "vision": "To become the leading investment platform in Ghana, empowering individuals to achieve financial freedom through accessible and transparent investment opportunities.",
+
+  "why_choose_us": [
+    "Secure and transparent platform",
+    "Daily returns on investments",
+    "Referral rewards program",
+    "24/7 customer support",
+    "Easy deposit and withdrawal"
+  ],
+
+  "plans": [
+    {
+      "name": "NICO BASIC (VIP 1)",
+      "Daily_Income": "17 GHS",
+      "duration": "29 days",
+      "PRICE": "120 GHS"
+    },
+    {
+      "name": "NICO STANDARD (VIP 2)",
+      "Daily_Income": "34 GHS",
+      "duration": "29 days",
+      "price": "240 GHS"
+    },
+    {
+      "name": "NICO PREMIUM (VIP 3)",
+      "Daily_Income": "86 GHS",
+      "duration": "29 days",
+      "price": "600 GHS"
+    },
+    {
+      "name": "NICO ULTIMATE (VIP 4)",
+      "Daily_Income": "172 GHS",
+      "duration": "29 days",
+      "price": "1200 GHS"
+    }
+  ],
+
+  "deposits": "Deposits are reviewed and approved within minutes. After approval, your deposit reflects in your balance within 3–10 minutes. Make sure to follow the payment instructions carefully and upload proof of payment if required.",
+
+  "withdrawals": "Withdrawals are processed within 24 hours to your Mobile Money (MTN, TELECEL, AIRTEL-TIGO) account. Once approved, the funds reflect within 3–10 minutes.",
+
+  "referral": "You earn 12% bonus on your referral’s deposit. The bonus is credited once the deposit is approved. There’s no limit to how many people you can refer — simply share your referral code to invite friends.",
+
+  "account_rules": [
+    "One account per person",
+    "Must use a valid Ghana mobile number",
+    "Keep your password secure and confidential",
+    "Do not share your account with others"
+  ],
+
+  "investment_rules": [
+    "Minimum deposit: ₵100",
+    "Investment plans have fixed durations and returns",
+    "Returns are credited hourly based on the daily rate",
+    "Cannot cancel active investment plans"
+  ],
+
+  "withdrawal_rules": [
+    "Minimum withdrawal: ₵40",
+    "Withdrawal fee: 25%",
+    "Must invest at least 80% of deposits before withdrawing",
+    "Bind withdrawal account before first withdrawal",
+    "Withdrawals processed within 24 hours"
+  ],
+
+  "referral_rules": [
+    "Earn 12% bonus on referral deposits",
+    "Referral bonus credited when deposit is approved",
+    "No limit on number of referrals",
+    "Share your unique referral code/link to invite friends"
+  ],
+
+  "prohibited_activities": [
+    "Creating multiple accounts",
+    "Using fake or fraudulent payment information",
+    "Attempting to manipulate the system",
+    "Sharing account credentials",
+    "Any form of abuse or harassment"
+  ],
+
+  "violation_notice": "Violation of these rules may result in account suspension or termination. NicoNetwork reserves the right to update these rules at any time.",
+
+  "login_help": "If you’re unable to log in, make sure you’re entering the correct mobile number and password. If the issue continues, clear your browser cache or try logging in using another device. If it still persists, contact admin @admin99 for help.",
+
+  "account_creation_help": "If you can’t create an account, ensure your mobile number is valid (format: 0XXXXXXXXX) and not already registered. Double-check your password confirmation and internet connection. If you still face issues, contact admin @admin99 for assistance.",
+
+  "deposit_steps": [
+    "Log in to your NicoNetwork account.",
+    "Go to the Deposit section.",
+    "Enter the amount you want to deposit (minimum ₵100).",
+    "Carefully read and follow the payment instructions.",
+    "Choose your preferred payment method (MTN, TELECEL, AIRTEL-TIGO).",
+    "Follow the payment instructions and confirm your transaction.",
+    "After making payment, Backfill your details and Transaction ID then click 'Submit'.",
+    "Wait for approval — deposits reflect within 3–10 minutes after approval."
+  ],
+
+  "support": "For help, contact customer support @NicoNetworkSupport on Telegram."
+}
