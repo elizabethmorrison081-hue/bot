@@ -140,8 +140,8 @@ function isNicoNetworkRelated(text) {
   const keywords = [
     "deposit", "withdraw", "plan", "balance", "referral", "earn", "bonus",
     "register", "niconetwork", "investment", "profit", "return", "interest",
-    "account", "login", "scam", "collapse", "last", "safe",
-    "support", "admin", "contact", "help"
+    "account", "login", "scam", "collapse", "last", "safe","legit", "trusted","run away",
+    "support", "admin", "contact", "help","platform", "site", "website", "app","invest"
   ];
   return keywords.some((kw) => text.toLowerCase().includes(kw));
 }
