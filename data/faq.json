@@ -1,4 +1,3 @@
-
 {
   "about": "NicoNetwork is a trusted online investment platform dedicated to helping users grow their wealth through secure and smart investment strategies.",
 
@@ -11,7 +10,9 @@
     "Daily returns on investments",
     "Referral rewards program",
     "24/7 customer support",
-    "Easy deposit and withdrawal"
+    "Easy deposit and withdrawal",
+    "Minimum deposit: ₵100",
+    "Minimum withdrawal: ₵40"
   ],
 
   "plans": [
@@ -41,9 +42,9 @@
     }
   ],
 
-  "deposits": "Deposits are reviewed and approved within minutes. After approval, your deposit reflects in your balance within 3–10 minutes. Make sure to follow the payment instructions carefully and Backfill your details and Transaction ID after payment.",
+  "deposits": "Deposits are reviewed and approved within minutes. After approval, your deposit reflects in your balance within 3–10 minutes. Make sure to follow the payment instructions carefully and Backfill your details and Transaction ID after payment. Minimum deposit amount is ₵100.",
 
-  "withdrawals": "Withdrawals are processed within 24 hours to your Mobile Money (MTN, TELECEL, AIRTEL-TIGO) account. Once approved, the funds reflect within 3–10 minutes.",
+  "withdrawals": "Withdrawals are processed within 24 hours to your Mobile Money (MTN, TELECEL, AIRTEL-TIGO) account. Once approved, the funds reflect within 3–10 minutes. Minimum withdrawal amount is ₵40.",
 
   "referral": "You earn 12% bonus on your referral’s deposit. The bonus is credited once the deposit is approved. There’s no limit to how many people you can refer — simply share your referral code to invite friends.",
 
@@ -109,6 +110,7 @@
     "Review the withdrawal details and confirm your request.",
     "Wait for approval — withdrawals reflect within 24hrs"
   ],
+
   "registration_steps": [
     "visit the official NicoNetwork website at https://niconetwork.cfd.",
     "Go to the Registration section.",
