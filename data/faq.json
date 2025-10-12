@@ -101,5 +101,22 @@
     "Wait for approval — deposits reflect within 3–10 minutes after approval."
   ],
 
+  "withdrawal_steps": [
+    "Log in to your NicoNetwork account.",
+    "Go to the Withdrawal section.",
+    "Enter the amount you want to withdraw (minimum ₵40).",
+    "Make sure you have bind your Withdrawal account.",
+    "Review the withdrawal details and confirm your request.",
+    "Wait for approval — withdrawals reflect within 24hrs"
+  ],
+  "registration_steps": [
+    "visit the official NicoNetwork website at https://niconetwork.cfd.",
+    "Go to the Registration section.",
+    "Enter the required information (nickname, phone number).",
+    "Create a strong password and confirm it.",
+    "Input your referral code if you have one (optional).",
+    "Review the registration details and register.",
+  ],
+
   "support": "For help, contact customer support @NicoNetworkSupport on Telegram."
 }
