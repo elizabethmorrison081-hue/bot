@@ -6,45 +6,47 @@
   "vision": "To become the leading investment platform in Ghana, empowering individuals to achieve financial freedom through accessible and transparent investment opportunities.",
 
   "why_choose_us": [
-    "Secure and transparent platform",
-    "Daily returns on investments",
-    "Referral rewards program",
-    "24/7 customer support",
-    "Easy deposit and withdrawal",
-    "Minimum deposit: ₵100",
-    "Minimum withdrawal: ₵40"
-  ],
+  "Secure and transparent platform",
+  "Daily returns on investments",
+  "Referral rewards program",
+  "₵25 registration bonus for new users",
+  "24/7 customer support",
+  "Easy deposit and withdrawal",
+  "Minimum deposit: ₵75",
+  "Minimum withdrawal: ₵25"
+],
+
 
   "plans": [
     {
       "name": "NICO BASIC (VIP 1)",
-      "Daily_Income": "17 GHS",
+      "Daily_Income": "15 GHS",
       "duration": "29 days",
-      "price": "120 GHS"
+      "price": "100 GHS"
     },
     {
       "name": "NICO STANDARD (VIP 2)",
-      "Daily_Income": "34 GHS",
+      "Daily_Income": "40 GHS",
       "duration": "29 days",
-      "price": "240 GHS"
+      "price": "200 GHS"
     },
     {
       "name": "NICO PREMIUM (VIP 3)",
-      "Daily_Income": "86 GHS",
+      "Daily_Income": "60 GHS",
       "duration": "29 days",
-      "price": "600 GHS"
+      "price": "300 GHS"
     },
     {
       "name": "NICO ULTIMATE (VIP 4)",
-      "Daily_Income": "172 GHS",
+      "Daily_Income": "102 GHS",
       "duration": "29 days",
-      "price": "1200 GHS"
+      "price": "500 GHS"
     }
   ],
 
-  "deposits": "Deposits are reviewed and approved within minutes. After approval, your deposit reflects in your balance within 3–10 minutes. Make sure to follow the payment instructions carefully and Backfill your details and Transaction ID after payment. Minimum deposit amount is ₵100.",
+  "deposits": "Deposits are reviewed and approved within minutes. After approval, your deposit reflects in your balance within 3–10 minutes. Make sure to follow the payment instructions carefully and Backfill your details and Transaction ID after payment. Minimum deposit amount is ₵75.",
 
-  "withdrawals": "Withdrawals are processed within 24 hours to your Mobile Money (MTN, TELECEL, AIRTEL-TIGO) account. Once approved, the funds reflect within 3–10 minutes. Minimum withdrawal amount is ₵40.",
+  "withdrawals": "Withdrawals are processed within 24 hours to your Mobile Money (MTN, TELECEL, AIRTEL-TIGO) account. Once approved, the funds reflect within 3–10 minutes. Minimum withdrawal amount is ₵25.",
 
   "referral": "You earn 12% bonus on your referral’s deposit. The bonus is credited once the deposit is approved. There’s no limit to how many people you can refer — simply share your referral code to invite friends.",
 
@@ -56,14 +58,14 @@
   ],
 
   "investment_rules": [
-    "Minimum deposit: ₵100",
+    "Minimum deposit: ₵75",
     "Investment plans have fixed durations and returns",
     "Returns are credited hourly based on the daily rate",
     "Cannot cancel active investment plans"
   ],
 
   "withdrawal_rules": [
-    "Minimum withdrawal: ₵40",
+    "Minimum withdrawal: ₵25",
     "Withdrawal fee: 25%",
     "Must invest at least 80% of deposits before withdrawing",
     "Bind withdrawal account before first withdrawal",
@@ -84,6 +86,7 @@
     "Sharing account credentials",
     "Any form of abuse or harassment"
   ],
+  "registration_bonus": "New users receive ₵25 registration bonus instantly after signing up. This bonus is added to your account balance and can be used for investment.",
 
   "violation_notice": "Violation of these rules may result in account suspension or termination. NicoNetwork reserves the right to update these rules at any time.",
 
@@ -94,7 +97,7 @@
   "deposit_steps": [
     "Log in to your NicoNetwork account.",
     "Go to the Deposit section.",
-    "Enter the amount you want to deposit (minimum ₵100).",
+    "Enter the amount you want to deposit (minimum ₵75).",
     "Carefully read and follow the payment instructions.",
     "Choose your preferred payment method (MTN, TELECEL, AIRTEL-TIGO).",
     "Follow the payment instructions and confirm your transaction.",
@@ -105,7 +108,7 @@
   "withdrawal_steps": [
     "Log in to your NicoNetwork account.",
     "Go to the Withdrawal section.",
-    "Enter the amount you want to withdraw (minimum ₵40).",
+    "Enter the amount you want to withdraw (minimum ₵25).",
     "Make sure you have bind your Withdrawal account.",
     "Review the withdrawal details and confirm your request.",
     "Wait for approval — withdrawals reflect within 24hrs"

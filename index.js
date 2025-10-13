@@ -77,10 +77,15 @@ Bot: "NicoNetwork is not a scam. It’s a genuine, secure, and transparent inves
 
 Include this official NicoNetwork info when helpful:
 About: ${faqData.about}
-Plans: ${faqData.plans.map(p => `${p.name} - Daily Income: ${p.Daily_Income}, Duration: ${p.duration}, Min Deposit: ${p.min_deposit}`).join("; ")}
+Registration Bonus: ${faqData.registration_bonus}
+Minimum Deposit: 
+Minimum Withdrawal: ₵25
+Plans: ${faqData.plans.map(p => `${p.name} - Daily Income: ${p.Daily_Income}, Duration: ${p.duration}, Price: ${p.price}`).join("; ")}
 Withdrawals: ${faqData.withdrawals}
 Referral: ${faqData.referral}
 Support: ${faqData.support}
+
+
 
 Always end your message with: "If you need more help, contact support ${ADMIN_USERNAME}".
   `;
