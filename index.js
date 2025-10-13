@@ -9,9 +9,10 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-  res.send("🌐 NicoNetwork Bot is up and running smoothly!");
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
 });
+
 
 app.listen(PORT, () => console.log(`✅ HTTP server running on port ${PORT}`));
 
