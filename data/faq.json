@@ -115,6 +115,22 @@
     "Review the withdrawal details and confirm your request.",
     "Wait for approval — withdrawals reflect within 24hrs"
   ],
+  "Bind_withdrawal_Account_steps": [
+    "Log in to your NicoNetwork account.",
+    "Go to the Mine section.",
+    "Select 'Bind Withdrawal Account'.",
+    "Enter your withdrawal account details.",
+    "Select Update Account.",
+    "Your withdrawal account is now bound."
+  ],
+  "Change_Account_Password_steps": [
+    "Log in to your NicoNetwork account.",
+    "Go to the Mine section.",
+    "Select 'Change Password'.",
+    "Enter your current password.",
+    "Enter your new password and confirm it.",
+    "Select Change Password."
+  ],
 
   "registration_steps": [
     "visit the official NicoNetwork website at https://niconetwork.cfd.",

@@ -83,6 +83,7 @@ Minimum Deposit: ₵75
 Minimum Withdrawal: ₵25
 Plans: ${faqData.plans.map(p => `${p.name} - Daily Income: ${p.Daily_Income}, Duration: ${p.duration}, Price: ${p.price}`).join("; ")}
 Withdrawals: ${faqData.withdrawals}
+withdrawal Account Binding Steps: ${faqData.Bind_withdrawal_Account_steps.join(" -> ")}
 Referral: ${faqData.referral}
 Support: ${faqData.support}
 
@@ -145,8 +146,8 @@ function isOfficialUrl(link) {
 
 function isNicoNetworkRelated(text) {
   const keywords = [
-    "deposit", "withdraw", "plan", "balance", "referral", "earn", "bonus",
-    "register", "niconetwork", "investment", "profit", "return", "interest",
+    "deposit", "withdraw", "plan", "balance", "referral", "earn", "bonus","team","commission",
+    "register", "niconetwork", "investment", "profit", "return", "interest","earn","income","pay","VIP","bonus",
     "account", "login", "scam", "collapse", "last", "safe","legit", "trusted","run away", "launched",
     "support", "admin", "contact", "help","platform", "site", "website", "app","invest"
   ];
