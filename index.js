@@ -7,6 +7,8 @@ import express from "express";
 dotenv.config();
 
 const app = express();
+app.use(express.json()); // ✅ required for Telegram webhook
+
 const PORT = process.env.PORT || 3000;
 
 // Health check route — light and log-free
@@ -31,7 +33,25 @@ if (userAgent.includes("cron-job.org")) {
 
 // === BOT LOGIC STARTS HERE ===
 
-const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, { polling: true });
+// REPLACED polling with webhook (keeps the rest of your code intact)
+const bot = new TelegramBot(process.env.TELEGRAM_TOKEN);
+// Setup webhook path & route (requires BASE_URL in env, e.g. https://yourdomain.com)
+const webhookPath = `/bot${process.env.TELEGRAM_TOKEN}`;
+const webhookUrl = `${process.env.BASE_URL}${webhookPath}`;
+(async () => {
+  try {
+    await bot.setWebHook(webhookUrl);
+    console.log(`✅ Webhook set to: ${webhookUrl}`);
+  } catch (err) {
+    console.error("❌ Failed to set webhook:", err.message);
+  }
+})();
+
+app.post(webhookPath, (req, res) => {
+  bot.processUpdate(req.body);
+  res.sendStatus(200);
+});
+
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 const OFFICIAL_DOMAINS = ["niconetwork.cfd"];
