@@ -25,8 +25,8 @@ app.listen(PORT, () => {
 // ⛔️ Skip full bot startup if it's just cron-job health check
 const userAgent = process.env.CRON_USER_AGENT || "";
 if (userAgent.includes("cron-job.org")) {
-  // Exit early to avoid starting the bot
-  return;
+  console.log("⚠️ Skipping bot startup for cron-job health check");
+  process.exit(0); // ✅ use this instead of `return;`
 }
 
 // === BOT LOGIC STARTS HERE ===
