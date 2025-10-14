@@ -9,18 +9,31 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Health check route — light and log-free
 app.get("/health", (req, res) => {
-  res.set('Content-Type', 'text/plain'); // Enforce plain response
-  res.status(200).send("OK");
+  const userAgent = req.headers["user-agent"] || "";
+  if (userAgent.includes("cron-job.org")) {
+    return res.type("text").send("OK");
+  }
+  res.status(403).send("Forbidden");
 });
 
+app.listen(PORT, () => {
+  console.log(`✅ HTTP server running on port ${PORT}`);
+});
 
-app.listen(PORT, () => console.log(`✅ HTTP server running on port ${PORT}`));
+// ⛔️ Skip full bot startup if it's just cron-job health check
+const userAgent = process.env.CRON_USER_AGENT || "";
+if (userAgent.includes("cron-job.org")) {
+  // Exit early to avoid starting the bot
+  return;
+}
+
+// === BOT LOGIC STARTS HERE ===
 
 const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, { polling: true });
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-// === CONFIG ===
 const OFFICIAL_DOMAINS = ["niconetwork.cfd"];
 const ADMIN_USERNAME = "@NicoNetworkSupport";
 
@@ -47,12 +60,8 @@ function loadFAQ() {
   return JSON.parse(fs.readFileSync("./data/faq.json", "utf-8"));
 }
 
-
-// === LOAD PLATFORM DATA ===
 const faqData = loadFAQ();
 
-
-// === GPT CONTEXT (PROFESSIONAL PERSONALITY) ===
 function generateContext() {
   return `
 You are "Nico", the official *NicoNetwork Assistant Bot* — a smart, polite, and confident assistant who provides helpful, professional answers about the NicoNetwork platform.
@@ -90,13 +99,10 @@ change account password: ${faqData.Change_Account_Password_steps.join(" -> ")}
 Referral: ${faqData.referral}
 Support: ${faqData.support}
 
-
-
 Always end your message with: "If you need more help, contact support ${ADMIN_USERNAME}".
   `;
 }
 
-// === UTILITIES ===
 let botAdminCache = {};
 
 async function botCanDeleteMessages(chatId) {
@@ -149,10 +155,10 @@ function isOfficialUrl(link) {
 
 function isNicoNetworkRelated(text) {
   const keywords = [
-    "deposit", "withdraw", "plan", "balance", "referral", "earn", "bonus","team","commission",
-    "register", "niconetwork", "investment", "profit", "return", "interest","earn","income","pay","VIP","bonus",
-    "account", "login", "scam", "collapse", "last", "safe","legit", "trusted","run away", "launched","grow","money","increase",
-    "support", "admin", "contact", "help","platform", "site", "website", "app","invest", "funds","launch","explain","how to"
+    "deposit", "withdraw", "plan", "balance", "referral", "earn", "bonus", "team", "commission",
+    "register", "niconetwork", "investment", "profit", "return", "interest", "income", "pay", "VIP",
+    "account", "login", "scam", "collapse", "last", "safe", "legit", "trusted", "run away", "launched", "grow", "money", "increase",
+    "support", "admin", "contact", "help", "platform", "site", "website", "app", "invest", "funds", "launch", "explain", "how to"
   ];
   return keywords.some((kw) => text.toLowerCase().includes(kw));
 }
@@ -164,7 +170,6 @@ function cleanFormatting(text) {
     .replace(/\n{3,}/g, "\n\n");
 }
 
-// === EVENT: NEW MEMBER ===
 bot.on("new_chat_members", async (msg) => {
   const chatId = msg.chat.id;
   for (const member of msg.new_chat_members) {
@@ -172,7 +177,6 @@ bot.on("new_chat_members", async (msg) => {
   }
 });
 
-// === MAIN HANDLER ===
 bot.on("message", async (msg) => {
   const chatId = msg.chat.id;
   const text = msg.text || msg.caption || "";
@@ -180,7 +184,6 @@ bot.on("message", async (msg) => {
 
   const lowerText = text.toLowerCase();
 
-  // 1️⃣ Delete non-official links silently
   const links = extractLinksFromMessage(msg);
   if (links.length > 0 && !links.every(isOfficialUrl)) {
     const canDelete = await botCanDeleteMessages(chatId);
@@ -194,7 +197,6 @@ bot.on("message", async (msg) => {
     }
   }
 
-  // 2️⃣ Detect insults
   if (INSULT_WORDS.some((w) => lowerText.includes(w))) {
     await bot.sendMessage(
       chatId,
@@ -203,13 +205,9 @@ bot.on("message", async (msg) => {
     return;
   }
 
-  // 3️⃣ Ignore short or random chats
   if (/^(hi|hello|hey|ok|😂|😅|😊|👍|🙌|🙏|😁|🤣|❤️|ok+|k+)$/.test(lowerText) || lowerText.length < 3) return;
-
-  // 4️⃣ Only reply to NicoNetwork-related stuff
   if (!isNicoNetworkRelated(text)) return;
 
-  // 5️⃣ Generate polite GPT reply
   try {
     await bot.sendChatAction(chatId, "typing");
     const context = generateContext();
