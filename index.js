@@ -225,7 +225,10 @@ bot.on("message", async (msg) => {
 
     const reply = completion.choices[0].message.content || "";
     const cleaned = cleanFormatting(reply);
-    await bot.sendMessage(chatId, cleaned, { parse_mode: "Markdown" });
+    await bot.sendMessage(chatId, cleaned, {
+        parse_mode: "Markdown",
+        reply_to_message_id: msg.message_id, // ✅ This makes it reply directly
+        });
   } catch (err) {
     console.error("GPT reply failed:", err);
   }
