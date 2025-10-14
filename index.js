@@ -81,9 +81,11 @@ launch_date: ${faqData.launch_date}
 Registration Bonus: ${faqData.registration_bonus}
 Minimum Deposit: ₵75
 Minimum Withdrawal: ₵25
+withdrawal fee: ${faqData["withdrawal fee"]}
 Plans: ${faqData.plans.map(p => `${p.name} - Daily Income: ${p.Daily_Income}, Duration: ${p.duration}, Price: ${p.price}`).join("; ")}
 Withdrawals: ${faqData.withdrawals}
 withdrawal Account Binding Steps: ${faqData.Bind_withdrawal_Account_steps.join(" -> ")}
+change account password: ${faqData.Change_Account_Password_steps.join(" -> ")}
 Referral: ${faqData.referral}
 Support: ${faqData.support}
 
