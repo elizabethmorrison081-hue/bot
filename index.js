@@ -10,6 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get("/health", (req, res) => {
+  res.set('Content-Type', 'text/plain'); // Enforce plain response
   res.status(200).send("OK");
 });
 
