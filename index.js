@@ -157,11 +157,41 @@ function isOfficialUrl(link) {
 
 function isNicoNetworkRelated(text) {
   const keywords = [
-    "deposit", "withdraw", "plan", "balance", "referral", "earn", "bonus", "team", "commission",
-    "register", "niconetwork", "investment", "profit", "return", "interest", "income", "pay", "VIP",
-    "account", "login", "scam", "collapse", "last", "safe", "legit", "trusted", "run away", "launched", "grow", "money", "increase",
-    "support", "admin", "contact", "help", "platform", "site", "website", "app", "invest", "funds", "launch", "explain", "how to"
-  ];
+  "deposit", "depositing", "withdraw", "withdrawal", "withdrawals", "cash out", "payout", "pay out",
+  "plan", "plans", "package", "packages", "subscription", "tier", "level",
+  "balance", "account balance", "funds", "wallet", "credit", "debit", "statement",
+  "referral", "refer", "referrer", "bonus", "reward", "commission", "commissions",
+  "team", "group", "network", "downline", "upline", "member",
+  "registration", "register", "sign up", "signup", "create account", "account creation",
+  "niconetwork", "nico network", "investment", "invest", "investing",
+  "profit", "profits", "earn", "earning", "income", "return", "returns",
+  "interest", "interest rate", "ROI", "revenue",
+  "pay", "payment", "paid", "payout", "receive money", "withdraw funds",
+  "VIP", "premium", "elite", "exclusive",
+  "account", "user account", "profile", "login", "log in", "sign in", "credentials", "password", "security",
+  "scam", "fraud", "fake", "legit", "legitimate", "trust", "trusted", "safe", "secure", "reliable", "authentic",
+  "collapse", "shutdown", "closing", "closing down", "end", "finish", "run away", "exit scam",
+  "launched", "launch", "start", "begin", "grow", "growth", "increase", "raise", "boost", "expand",
+  "money", "cash", "funds", "capital", "currency", "finance", "finances",
+  "support", "help", "customer service", "contact", "admin", "administrator", "moderator", "manager",
+  "platform", "site", "website", "webpage", "app", "application", "software", "system",
+  "invest", "investment", "fund", "funding", "backing",
+  "explain", "explanation", "how to", "guide", "instructions", "tutorial", "steps", "process",
+  "bonus", "extra", "perk", "benefit",
+  "referral code", "promo code", "discount", "voucher",
+  "withdrawal fee", "transaction fee", "charge", "cost",
+  "account verification", "verify account", "KYC", "identity check",
+  "deposit bonus", "welcome bonus", "signup bonus",
+  "payment methods", "deposit options", "withdraw options",
+  "affiliate", "partner", "affiliate program",
+  "terms", "conditions", "policy", "rules",
+  "privacy", "data protection",
+  "complaint", "issue", "problem", "bug",
+  "security breach", "hacked", "phishing",
+  "referral link", "invite link",
+  "support ticket", "customer support", "live chat",
+];
+
   return keywords.some((kw) => text.toLowerCase().includes(kw));
 }
 
