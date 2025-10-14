@@ -151,7 +151,7 @@ function isNicoNetworkRelated(text) {
     "deposit", "withdraw", "plan", "balance", "referral", "earn", "bonus","team","commission",
     "register", "niconetwork", "investment", "profit", "return", "interest","earn","income","pay","VIP","bonus",
     "account", "login", "scam", "collapse", "last", "safe","legit", "trusted","run away", "launched","grow","money","increase",
-    "support", "admin", "contact", "help","platform", "site", "website", "app","invest", "funds","launch"
+    "support", "admin", "contact", "help","platform", "site", "website", "app","invest", "funds","launch","explain","how to"
   ];
   return keywords.some((kw) => text.toLowerCase().includes(kw));
 }
