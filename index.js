@@ -77,6 +77,7 @@ Bot: "NicoNetwork is not a scam. It’s a genuine, secure, and transparent inves
 
 Include this official NicoNetwork info when helpful:
 About: ${faqData.about}
+launch_date: ${faqData.launch_date}
 Registration Bonus: ${faqData.registration_bonus}
 Minimum Deposit: ₵75
 Minimum Withdrawal: ₵25
