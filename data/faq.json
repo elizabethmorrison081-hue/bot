@@ -134,6 +134,10 @@
     "Select Change Password."
   ],
 
+  "registration_link": "https://niconetwork.cfd/register",
+
+  "official_domain": "https://niconetwork.cfd",
+
   "registration_steps": [
     "visit the official NicoNetwork website at https://niconetwork.cfd.",
     "Go to the Registration section.",

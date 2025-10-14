@@ -96,6 +96,8 @@ Plans: ${faqData.plans.map(p => `${p.name} - Daily Income: ${p.Daily_Income}, Du
 Withdrawals: ${faqData.withdrawals}
 withdrawal Account Binding Steps: ${faqData.Bind_withdrawal_Account_steps.join(" -> ")}
 change account password: ${faqData.Change_Account_Password_steps.join(" -> ")}
+registration link: ${faqData.registration_link}
+official domain: ${faqData.official_domain}
 Referral: ${faqData.referral}
 Support: ${faqData.support}
 
