@@ -34,7 +34,8 @@ if (userAgent.includes("cron-job.org")) {
 // === BOT LOGIC STARTS HERE ===
 
 // REPLACED polling with webhook (keeps the rest of your code intact)
-const bot = new TelegramBot(process.env.TELEGRAM_TOKEN);
+const bot = new TelegramBot(process.env.TELEGRAM_TOKEN, { webHook: true });
+
 // Setup webhook path & route (requires BASE_URL in env, e.g. https://yourdomain.com)
 const webhookPath = `/bot${process.env.TELEGRAM_TOKEN}`;
 const webhookUrl = `${process.env.BASE_URL}${webhookPath}`;
