@@ -56,7 +56,7 @@ app.post(webhookPath, (req, res) => {
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 const OFFICIAL_DOMAINS = ["niconetwork.cfd"];
-const ADMIN_USERNAME = "@NicoNetworkSupport";
+const ADMIN_USERNAME = "@Nico_CustomerService";
 
 const INSULT_WORDS = [
   "fool", "idiot", "stupid", "nonsense", "mad", "useless", "bastard",
